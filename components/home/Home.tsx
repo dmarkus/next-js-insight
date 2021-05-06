@@ -1,6 +1,7 @@
 import Head from "next/head";
 import * as React from "react";
 import styles from "./Home.module.css";
+import Link from 'next/link'
 
 export const Home = () => (
   <div className={styles.container}>
@@ -18,11 +19,12 @@ export const Home = () => (
       </p>
 
       <div className={styles.grid}>
-        <a href="https://nextjs.org/docs" className={styles.card}>
-          <h2>About us &rarr;</h2>
-          <p>Find more information about who we are</p>
-        </a>
-
+          <Link href="/about-us">
+              <a href="https://nextjs.org/docs" className={styles.card}>
+                  <h2>About us &rarr;</h2>
+                  <p>Find more information about who we are</p>
+              </a>
+          </Link>
         <a href="https://nextjs.org/learn" className={styles.card}>
           <h2>Register</h2>
           <p>Fill in registration form</p>
