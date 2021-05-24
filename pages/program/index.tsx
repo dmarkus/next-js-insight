@@ -1,4 +1,5 @@
 import { Description } from "../../components/description/Description";
+import {config} from "../../utils/config";
 
 interface Event {
   id: string;
@@ -11,12 +12,12 @@ interface ProgramProps {
   events: Event[];
 }
 
-export async function getProgram() {
-  const events = await fetch("/api/program");
-  return { props: { events } };
+export async function getStaticProps() {
+  const response = await fetch(`${config.apiPath}/events.json`);
+  return { props: { events: await response.json() } };
 }
 
-export default function Program({ events }: ProgramProps) {
+export default function Program({events}:ProgramProps) {
   return (
     <Description>
       {events.map(({ id, name, description, time }) => (
