@@ -1,5 +1,5 @@
 import { Description } from "../../components/description/Description";
-import {config} from "../../utils/config";
+import { config } from "../../utils/config";
 
 interface Event {
   id: string;
@@ -17,7 +17,7 @@ export async function getStaticProps() {
   return { props: { events: await response.json() } };
 }
 
-export default function Program({events}:ProgramProps) {
+export default function Program({ events }: ProgramProps) {
   return (
     <Description>
       {events.map(({ id, name, description, time }) => (
