@@ -1,12 +1,6 @@
 import { Description } from "../../components/description/Description";
 import { config } from "../../utils/config";
-
-interface Event {
-  id: string;
-  name: string;
-  description: string;
-  time: string;
-}
+import { Event} from "../../utils/types";
 
 interface ProgramProps {
   events: Event[];
