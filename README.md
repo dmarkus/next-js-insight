@@ -35,7 +35,7 @@ export default function Program({ events }: ProgramProps) {
 
 Server side rendering at every request time is possible with method `getServerSideProps`.
 
-#Statically generated pages with dynamic routers
+# Statically generated pages with dynamic routers
 If our side have number of pages which are generated based on external data (for example database),
 it's possible to implement `getStaticPathes`.
 
