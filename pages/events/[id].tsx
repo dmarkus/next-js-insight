@@ -8,11 +8,15 @@ interface EventProps {
 export async function getStaticPaths() {
   const response = await fetch(`${config.apiPath}/events.json`);
   const events = await response.json();
-  return events.map(({ id }) => {
-    params: {
-      id;
-    }
-  });
+
+  return {
+    paths: events.map(({ id }) => ({
+      params: {
+        id,
+      },
+    })),
+    fallback: false,
+  };
 }
 
 export async function getStaticProps({ params }) {
@@ -26,5 +30,5 @@ export async function getStaticProps({ params }) {
 }
 
 export default function EventPage({ event }: EventProps) {
-  return <>{event}</>;
+  return <>{event.description}</>;
 }
