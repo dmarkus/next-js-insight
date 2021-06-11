@@ -1,6 +1,7 @@
+import React from "react";
 import { Description } from "../../components/description/Description";
 import { config } from "../../utils/config";
-import { Event} from "../../utils/types";
+import { Event } from "../../utils/types";
 
 interface ProgramProps {
   events: Event[];
@@ -14,15 +15,7 @@ export async function getStaticProps() {
 export default function Program({ events }: ProgramProps) {
   return (
     <Description>
-      {events.map(({ id, name, description, time }) => (
-        <li key={id}>
-          {name}
-          <br />
-          {description}
-          <br />
-          {time}
-        </li>
-      ))}
+      <Program events={events} />
     </Description>
   );
 }
